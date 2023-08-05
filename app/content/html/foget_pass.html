@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../asset/img/LOGO47FACTORY.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <title>47 Factory</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container">
+          <div class="header_logo">
+            <a href="./index.html">
+              <img
+                class="header_logo"
+                src="../asset/img/LOGOSIMPLE47FACTORY.png"
+                alt="logo"
+              />
+            </a>
+          </div>
+          <ul>
+            <li class="nav">
+              <a href="#">Chúng tôi</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./philosophy.html">Sứ mệnh</a></li>
+                <li><a href="">Địa điểm</a></li>
+                <li><a href="">Cộng đồng</a></li>
+                <li><a href="">Tuyển dụng</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./store.html">Cửa hàng</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="">Cà phê specially</a></li>
+                <li><a href="">Gói thuê bao</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Trải nghiệm</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="">Coffee guides</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Hợp tác</a>
+              <box-icon class="icon"></box-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Hỗ trợ</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Tài khoản</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <!-- <li><a href="">Thông tin tài khoản</a></li>
+                <li><a href="">Theo dõi đơn hàng</a></li>
+                <li><a href="">Đăng xuất</a></li> -->
+                <li><a href="./login.html">Đăng nhập</a></li>
+                <li><a href="./register.html">Đăng ký</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./cart.html">Giỏ hàng</a>
+            </li>
+          </ul>
+          <div class="search">
+            <ion-icon
+              onclick="toggleSearchForm()"
+              class="icon"
+              name="search-outline"
+            ></ion-icon>
+            <div id="overlay" class="overlay">
+              <div class="searchForm">
+                <input type="text" placeholder="Enter your search " />
+                <ion-icon
+                  onclick="toggleSearchForm()"
+                  name="close-outline"
+                  class="icon_close"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="main main_page container">
+        <div class="tilte">Quên mật khẩu</div>
+        <div class="login_page foger_pass">
+          <div class="login">
+            <h3>Mật khẩu mà cũng quên ?</h3>
+            <p class="message">
+              Quên mật khẩu? Vui lòng nhập tên đăng nhập hoặc địa chỉ email. Bạn
+              sẽ nhận được một liên kết tạo mật khẩu mới qua email.
+            </p>
+            <div class="input">
+              <div class="form_group">
+                <input type="text" placeholder="Enter your username or email" />
+                <span class="message"></span>
+              </div>
+            </div>
+            <div class="see_more-btn">
+              <a href="./login.html" class="">Đặt lại mật khẩu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="../asset/js/swiper.js"></script>
+    <script src="../asset/js/main.js"></script>
+  </body>
+</html>

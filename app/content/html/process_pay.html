@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../asset/img/LOGO47FACTORY.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <title>47 Factory</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container">
+          <div class="header_logo">
+            <a href="./index.html">
+              <img
+                class="header_logo"
+                src="../asset/img/LOGOSIMPLE47FACTORY.png"
+                alt="logo"
+              />
+            </a>
+          </div>
+          <ul>
+            <li class="nav">
+              <a href="#">Chúng tôi</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./philosophy.html">Sứ mệnh</a></li>
+                <li><a href="">Địa điểm</a></li>
+                <li><a href="">Cộng đồng</a></li>
+                <li><a href="">Tuyển dụng</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./store.html">Cửa hàng</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="">Cà phê specially</a></li>
+                <li><a href="">Gói thuê bao</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Trải nghiệm</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="">Coffee guides</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Hợp tác</a>
+              <box-icon class="icon"></box-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Hỗ trợ</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Tài khoản</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <!-- <li><a href="">Thông tin tài khoản</a></li>
+                <li><a href="">Theo dõi đơn hàng</a></li>
+                <li><a href="">Đăng xuất</a></li> -->
+                <li><a href="./login.html">Đăng nhập</a></li>
+                <li><a href="./register.html">Đăng ký</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./cart.html">Giỏ hàng</a>
+            </li>
+          </ul>
+          <div class="search">
+            <ion-icon
+              onclick="toggleSearchForm()"
+              class="icon"
+              name="search-outline"
+            ></ion-icon>
+            <div id="overlay" class="overlay">
+              <div class="searchForm">
+                <input type="text" placeholder="Enter your search " />
+                <ion-icon
+                  onclick="toggleSearchForm()"
+                  name="close-outline"
+                  class="icon_close"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="main main_page container">
+        <div class="breadcrumb">
+          <div class="breadcrumb_custom">
+            <a href="">Giỏ hàng</a>
+            <span style="padding: 0px 5px">|</span>
+            <a href="https://43factory.coffee/ca-phe-specialty/">Thanh toán</a>
+          </div>
+          <div class="payment_wapper container">
+            <div class="payment">
+              <form
+                method="post"
+                action="./processPay.php?submitPay"
+                class="cart_left"
+              >
+                <div class="title">Thông tin vận chuyển</div>
+                <div class="customer_infor">
+                  <div class="top_input">
+                    <div class="username_field form_group">
+                      <input
+                        class="form-control"
+                        name="username"
+                        type="text"
+                        value="Quản trị viên"
+                        placeholder="Họ và tên"
+                      />
+                      <span class="form-message text-danger"></span>
+                    </div>
+                    <div class="phonenumber_field form_group">
+                      <input
+                        class="form-control"
+                        name="number"
+                        type="tel"
+                        value=""
+                        placeholder="Số điện thoại"
+                        autofocus=""
+                      />
+
+                      <span class="form-message text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="mid_input">
+                    <div class="mail_field form_group">
+                      <input
+                        class="form-control"
+                        name="email"
+                        type="text"
+                        value="luti051123@gmail.com"
+                        placeholder="abc@gmail.com"
+                      />
+
+                      <span class="form-message text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="bottom_input">
+                    <div class="address_field form_group">
+                      <input
+                        class="form-control"
+                        name="address"
+                        type="text"
+                        value=""
+                        placeholder="137 Nguyễn Thị Thập"
+                        autofocus=""
+                      />
+                      <span class="form-message text-danger"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="select_type">
+                  <input type="hidden" name="province" class="valueProvince" />
+                  <input type="hidden" name="district" class="valueDistrict" />
+                  <input type="hidden" name="ward" class="valueWard" />
+                  <div class="select_wrapper">
+                    <div class="select_province">
+                      <p class="name_text">Tỉnh/TP</p>
+                      <div class="select select_option_province">
+                        <div class="selected form-control border">
+                          <p class="selected_text">Chọn Tỉnh/TP</p>
+                          <i class="fa-solid fa-arrow-down"></i>
+                          <ul class="option option_provinces"></ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="select_districts">
+                      <p class="name_text">Quận/Huyện</p>
+                      <div class="select">
+                        <div class="selected form-control border">
+                          <p class="selected_text">Chọn Quận/Huyện</p>
+                          <i class="fa-solid fa-arrow-down"></i>
+                          <ul class="option option_districts"></ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="select_wards">
+                      <p class="name_text">Phường/Xã</p>
+                      <div class="select">
+                        <div class="selected form-control border">
+                          <p class="selected_text">Chọn Phường/Xã</p>
+                          <i class="fa-solid fa-arrow-down"></i>
+                          <ul class="option option_wards"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form_payment">
+                  <div class="title">Hình thức thanh toán</div>
+                  <div>
+                    <div>
+                      <lable class="payment-method__item active">
+                        <span
+                          class="payment-method__item-custom-checkbox custom-radio"
+                        >
+                          <input
+                            type="radio"
+                            checked=""
+                            autocomplete="off"
+                            name=""
+                            id=""
+                          />
+                        </span>
+                        <span class="payment-method__item-icon-wrapper">
+                          <img
+                            src="https://www.coolmate.me/images/COD.svg"
+                            alt="COD"
+                          />
+                        </span>
+                        <span class="payment-method__item-name">
+                          COD <br />
+                          Thanh toán khi nhận hàng
+                        </span>
+                      </lable>
+                      <lable class="payment-method__item">
+                        <span
+                          class="payment-method__item-custom-checkbox custom-radio"
+                        >
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            name=""
+                            id=""
+                          />
+                        </span>
+                        <span class="payment-method__item-icon-wrapper">
+                          <img
+                            src="https://www.coolmate.me/images/momo-icon.png"
+                            alt="momo"
+                          />
+                        </span>
+                        <span class="payment-method__item-name">
+                          Thanh toán momo
+                        </span>
+                      </lable>
+                      <lable class="payment-method__item">
+                        <span
+                          class="payment-method__item-custom-checkbox custom-radio"
+                        >
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            name=""
+                            id=""
+                          />
+                        </span>
+                        <span class="payment-method__item-icon-wrapper">
+                          <img
+                            src="https://www.coolmate.me/images/logo-zalopay.svg"
+                            alt="logo-zalopay"
+                          />
+                        </span>
+                        <span class="payment-method__item-name">
+                          Thanh toán momo
+                        </span>
+                      </lable>
+                      <lable class="payment-method__item">
+                        <span
+                          class="payment-method__item-custom-checkbox custom-radio"
+                        >
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            name=""
+                            id=""
+                          />
+                        </span>
+                        <span class="payment-method__item-icon-wrapper">
+                          <img
+                            src="https://mcdn.coolmate.me/image/September2021/195dbf69c0ac36f26fbd_(1).png"
+                            alt="shopee-pay"
+                          />
+                        </span>
+                        <span class="payment-method__item-name">
+                          Ví điện tử zalopay
+                        </span>
+                      </lable>
+                      <lable class="payment-method__item">
+                        <span
+                          class="payment-method__item-custom-checkbox custom-radio"
+                        >
+                          <input
+                            type="radio"
+                            autocomplete="off"
+                            name=""
+                            id=""
+                          />
+                        </span>
+                        <span class="payment-method__item-icon-wrapper">
+                          <img
+                            src="https://www.coolmate.me/images/vnpay.png"
+                            alt="vnpay"
+                          />
+                        </span>
+                        <span class="payment-method__item-name"
+                          >Thẻ ATM / Internet Banking<br />Thẻ tín dụng (Credit
+                          card) / Thẻ ghi nợ (Debit card)<br />VNPay QR</span
+                        >
+                      </lable>
+                    </div>
+                    <p class="cart-return-text">
+                      Nếu bạn không hài lòng với sản phẩm của chúng tôi? Bạn
+                      hoàn toàn có thể trả lại sản phẩm.
+                    </p>
+                    <div class="btn_setion">
+                      <button
+                        type="submit"
+                        name="submitPay"
+                        class="checkout_btn"
+                      >
+                        Thanh toán
+                        <span> 24,360,000đ</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="line"></div>
+              <div class="cart_right">
+                <div class="title">Giỏ hàng</div>
+                <div class="cart_items">
+                  <div class="cart_item">
+                    <div class="cart_item_img">
+                      <img src="../../uploaded/products/product24.jpg" alt="" />
+                    </div>
+                    <div class="cart_item_block">
+                      <div class="cart_item_info">
+                        <p class="item_name">máy ảnh</p>
+                        <a>
+                          <ion-icon
+                            class="trash"
+                            name="trash-outline"
+                          ></ion-icon>
+                        </a>
+                      </div>
+                      <div class="cart_item_bottom">
+                        <div class="cart_item_quantity">
+                          <button class="quantity-box__decrease" onclick="">
+                            <svg
+                              width="16"
+                              height="16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g>
+                                <line
+                                  stroke-width="1.5"
+                                  id="svg_6"
+                                  y2="8"
+                                  x2="10"
+                                  y1="8"
+                                  x1="5"
+                                  stroke="#000000"
+                                  fill="none"
+                                ></line>
+                              </g>
+                            </svg>
+                          </button>
+                          <p class="quantity_text" style="color: #dc3545">4</p>
+                          <button class="quantity-box__increase" onclick="">
+                            <svg
+                              width="16"
+                              height="16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g>
+                                <line
+                                  stroke-width="1.5"
+                                  y2="8"
+                                  x2="12.9695"
+                                  y1="8"
+                                  x1="3.0305"
+                                  stroke="#000000"
+                                  fill="none"
+                                ></line>
+                                <line
+                                  stroke-width="1.5"
+                                  transform="rotate(90, 8, 8)"
+                                  y2="8"
+                                  x2="13"
+                                  y1="8"
+                                  x1="3"
+                                  stroke="#000000"
+                                  fill="none"
+                                ></line>
+                              </g>
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="cart_item_totalPrice">
+                          <p class="">6,090,000đ</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="discount_block">
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder="Mã giảm giá"
+                    />
+                    <button class="btnDiscount">Áp dụng</button>
+                  </div>
+                  <div class="price_current">
+                    <div class="price_current_row">
+                      <div class="">Tạm tính</div>
+                      <p class="">24,360,000đ</p>
+                    </div>
+                    <div class="price_current_row">
+                      <div class="">Giảm giá</div>
+                      <p class="">$0</p>
+                    </div>
+                    <div class="price_current_row">
+                      <div class="">Phí giao hàng</div>
+                      <p class="">Miễn Phí</p>
+                    </div>
+                  </div>
+                  <div class="total_price">
+                    <div class="price_current_row">
+                      <div class="">Tổng</div>
+                      <p class="totalPrice">24,360,000đ</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div class="footer_top container">
+          <div class="footer_top_left">
+            <ul>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconjcb-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconmatercard-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconvisa-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202005110511-icon-amex-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="footer_top_right">
+            <ul>
+              <li>
+                <a href="https://s.net.vn/2Q29" target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_google.png"
+                    alt="google"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_facebook.png"
+                    alt="facebook"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_instagram.png"
+                    alt="instagram"
+                /></a>
+              </li>
+
+              <li>
+                <a target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_twitter.png"
+                    alt="twitter"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_youtube.png"
+                    alt="youtube"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_pinterest.png"
+                    alt="pinterest"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer_bottom container">
+          <div class="footer_bottom_left">
+            <p>
+              <span
+                ><strong
+                  >CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI DỊCH VỤ 47</strong
+                ></span
+              >
+            </p>
+            <p>
+              <span
+                >Địa chỉ: 137 Nguyễn Thị Thập, Hòa Minh, Liên Chiểu, Đà
+                Nẵng</span
+              >
+            </p>
+            <p>
+              <span>Số điện thoại: 0799343943</span>
+            </p>
+            <p>
+              <span>Email: infor@47factory.coffee</span>
+            </p>
+          </div>
+          <div class="footer_bottom_right">
+            <p>
+              <img
+                src="https://43factory.coffee/wp-content/uploads/2020/06/202006110733-dang-ky-website-voi-bo-cong-thuong-3-e1591860823322.jpg"
+                width="100"
+                height="31"
+              />
+              <img
+                src="https://images.dmca.com/Badges/dmca_protected_16_120.png?ID=18999cf2-ec28-41ad-9f63-34caa63d91c4"
+                width="100"
+                height="31"
+              />
+            </p>
+            <p>
+              <span>Giấy chứng nhận Đăng ký Kinh doanh số 0401983565</span>
+              <br />
+              <span
+                >do Sở Kế hoạch và Đầu tư Thành phố Đà Nẵng cấp ngày
+                18/06/2019</span
+              >
+            </p>
+            <p>
+              <a>Chính sách sử dụng</a>
+              <a>Chính sách bảo mật</a>
+              <a>Chính sách thanh toán</a>
+              <a>Chính sách vận chuyển </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/8813097242.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="../asset/js/swiper.js"></script>
+    <script src="../asset/js/main.js"></script>
+  </body>
+</html>

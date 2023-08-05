@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../asset/css/admin.css" />
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <link rel="icon" href="../content/img/xshop.png" />
+  </head>
+  <body>
+    <div class="addProduct_wrapper">
+      <div class="addProducts">
+        <p class="title">Thêm mới sản phẩm</p>
+        <div class="box_add">
+          <form action="">
+            <div class="form_select">
+              <div class="form_group">
+                <label for="">Tên sản phẩm</label>
+                <input type="text" name="" id="" />
+              </div>
+              <div class="form_group">
+                <label for="">Loại sản phẩm</label>
+                <select name="" id="">
+                  <option value="" selected>Chưa chọn loại sản phẩm</option>
+                  <option value="">Điện thoại</option>
+                  <option value="">Máy tính</option>
+                  <option value="">Đồng hồ</option>
+                </select>
+              </div>
+              <div class="form_group disabled">
+                <label for="">Mã sản phẩm</label>
+                <input disabled type="text" name="" id="" value="auto number" />
+              </div>
+              <div class="form_group">
+                <label for="">Ảnh sản phẩm</label>
+                <input type="file" name="" id="" />
+              </div>
+              <div class="form_group">
+                <label for="">Đơn giá</label>
+                <input type="text" name="" id="" />
+              </div>
+              <div class="form_group">
+                <label for="">Giảm giá</label>
+                <input type="text" name="" id="" />
+              </div>
+              <div class="form_group">
+                <label for="">Hàng đặc biệt</label>
+                <div class="radio_group">
+                  <div class="radio">
+                    <input
+                      type="radio"
+                      name="selectProduct"
+                      id="selectProduct1"
+                    />
+                    <label for="selectProduct1">Bình thường</label>
+                  </div>
+                  <div class="radio">
+                    <input
+                      type="radio"
+                      name="selectProduct"
+                      id="selectProduct2"
+                    />
+                    <label for="selectProduct2">Đặc biệt</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form_group">
+                <label for="">Ngày nhập</label>
+                <input type="date" name="" id="" />
+              </div>
+              <div class="form_group disabled">
+                <label for="">Số lượt xem</label>
+                <input disabled type="number" name="" id="" value="0" />
+              </div>
+            </div>
+            <div class="form_des">
+              <div class="form_group">
+                <label for="">Mô tả sản phẩm</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+              </div>
+            </div>
+            <div class="form_btn">
+              <a class="btn_admin_product btn-danger">Nhập lại</a>
+              <a class="btn_admin_product btn-primary">Thêm mới</a>
+              <a href="./listProducts.html" class="btn_admin_product btn-light"
+                >Danh sách</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

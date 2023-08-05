@@ -1,0 +1,73 @@
+.community {
+  margin-top: 40px;
+  position: relative;
+  &_swiper {
+    position: relative;
+    .item_wrapper {
+      overflow: hidden;
+    }
+    .item_row {
+      display: flex;
+      transition: transform 0.3s ease;
+      .item {
+        max-width: calc((100% / 4));
+        flex-grow: 1;
+        flex-shrink: 0;
+        margin-right: 10px;
+        cursor: pointer;
+        position: relative;
+        &_img {
+          overflow: hidden;
+          img {
+            transform: scale(1);
+            transition: transform 0.3s linear;
+          }
+        }
+        &:hover .item_img img {
+          transform: scale(1.1);
+        }
+        &_content {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 10;
+          padding: 20px 10px;
+          overflow: hidden;
+          h3 {
+            font-size: var(--text-xl);
+            color: var(--color-text-white);
+            position: relative;
+            text-transform: uppercase;
+            z-index: 5;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+          p {
+            font-size: var(--text-m);
+            color: var(--color-text-white);
+            position: relative;
+            text-transform: uppercase;
+            z-index: 5;
+            font-weight: 500;
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            transition: bottom 0.3s;
+          }
+        }
+        &:hover ::after {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

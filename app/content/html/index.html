@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../asset/img/LOGO47FACTORY.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <title>47 Factory</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container">
+          <div class="header_logo">
+            <a href="./index.html">
+              <img
+                class="header_logo"
+                src="../asset/img/LOGOSIMPLE47FACTORY.png"
+                alt="logo"
+              />
+            </a>
+          </div>
+          <ul>
+            <li class="nav">
+              <a href="#">Chúng tôi</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./philosophy.html">Sứ mệnh</a></li>
+                <li><a href="">Địa điểm</a></li>
+                <li><a href="">Cộng đồng</a></li>
+                <li><a href="">Tuyển dụng</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./store.html">Cửa hàng</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="">Cà phê specially</a></li>
+                <li><a href="">Gói thuê bao</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Trải nghiệm</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="">Coffee guides</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Hợp tác</a>
+              <box-icon class="icon"></box-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Hỗ trợ</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Tài khoản</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <!-- <li><a href="">Thông tin tài khoản</a></li>
+                <li><a href="">Theo dõi đơn hàng</a></li>
+                <li><a href="">Đăng xuất</a></li> -->
+                <li><a href="./login.html">Đăng nhập</a></li>
+                <li><a href="./register.html">Đăng ký</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./cart.html">Giỏ hàng</a>
+            </li>
+          </ul>
+          <div class="search">
+            <ion-icon
+              onclick="toggleSearchForm()"
+              class="icon"
+              name="search-outline"
+            ></ion-icon>
+            <div id="overlay" class="overlay">
+              <div class="searchForm">
+                <input type="text" placeholder="Enter your search " />
+                <ion-icon
+                  onclick="toggleSearchForm()"
+                  name="close-outline"
+                  class="icon_close"
+                ></ion-icon>
+                <div class="search_content">
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                  <a> Tài khoản OpenAI - ChatGPT (Có sẵn 5$) </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="main">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="../asset/img/slider1.jpg" alt="slider1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../asset/img/slider2.jpg" alt="slider2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="../asset/img/slider3.jpg" alt="slider3" />
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        <div class="products container">
+          <div class="top">
+            <div class="title">
+              <h3>Sản phẩm</h3>
+              <p>Sản phẩm của chúng tôi</p>
+            </div>
+            <div class="see_more">
+              <a href="https://43factory.coffee/ca-phe-specialty/">Xem tiếp</a>
+            </div>
+          </div>
+          <div class="product">
+            <ion-icon
+              class="btn btn-previous"
+              name="arrow-back-outline"
+            ></ion-icon>
+            <div class="item_wrapper">
+              <div class="item_row">
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img
+                      src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="item_cont">
+                    <p class="item_price">800,000 VNĐ</p>
+                    <h3 class="item_ttl">Shaya #056</h3>
+                    <p class="item_txt"></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <ion-icon
+              class="btn btn-next"
+              name="arrow-forward-outline"
+            ></ion-icon>
+          </div>
+        </div>
+        <div class="story container">
+          <div class="top">
+            <div class="title">
+              <h3>Trải nghiệm</h3>
+              <p>Câu chuyện cà phê</p>
+            </div>
+            <div class="see_more">
+              <a href="https://43factory.coffee/ca-phe-specialty/">Xem tiếp</a>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content_left">
+              <a class="content_left_img">
+                <img src="../asset/img/story1.jpg" alt="" />
+              </a>
+              <div class="content_left_para">
+                <a
+                  class="heading"
+                  href="https://43factory.coffee/news/ben-vung-kinh-te-trong-nganh-ca-phe-va-nhung-dieu-ban-co-the-chua-biet/"
+                  ><h2>
+                    Bền vững kinh tế trong ngành cà phê và những điều bạn có thể
+                    chưa biết
+                  </h2></a
+                >
+                <p style="text-align: justify">
+                  <span
+                    ><strong style="font-weight: 600"
+                      >[PROTECT THE ORIGIN] </strong
+                    >Tính bền vững luôn là một chủ đề nóng trên bàn thảo luận
+                    của các chuyên gi</span
+                  ><span>a. </span
+                  ><span
+                    >Đặc biệt, trong bối cảnh thách thức về biến đổi khí hậu,
+                    tài nguyên thiên nhiên và biến động về kinh tế-xã hội như
+                    hiện nay, đạt được tính bền vững kinh tế là mục tiêu quan
+                    trọng hàng đầu của tất cả các ngành trong đó có cà phê. Cùng
+                    43 Factory Coffee Roaster khám phá
+                    <strong style="font-weight: 600"
+                      >tính bền vững kinh tế trong ngành cà phê</strong
+                    >
+                    nhé!</span
+                  >
+                </p>
+                <div class="see_more color_gray">
+                  <a href="https://43factory.coffee/ca-phe-specialty/"
+                    >Xem tiếp</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="content_right">
+              <a class="content_right_img">
+                <img src="../asset/img/story2.jpg" alt="" />
+              </a>
+              <div class="content_right_para">
+                <a
+                  class="heading"
+                  href="https://43factory.coffee/news/ben-vung-kinh-te-trong-nganh-ca-phe-va-nhung-dieu-ban-co-the-chua-biet/"
+                  ><h2>
+                    Giá cà phê hôm nay, xem giá cà phê hôm nay chính xác
+                  </h2></a
+                >
+                <p style="text-align: justify">
+                  [TASTE THE ORIGIN]
+                  <strong style="font-weight: 600"
+                    >Giá cà phê hôm nay thế nào?</strong
+                  >
+                  Cà phê là một thị trường có nhiều biến động, việc theo dõi giá
+                  cà phê hằng ngày sẽ giúp các nông hộ, nhà cung ứng biết được
+                  những thay đổi từ đó có những giải pháp kịp thời. 43 Factory
+                  Coffee Roaster cung cấp cho bạn đọc giá cà phê hôm nay. Mức
+                  giá này sẽ được cập nhật hàng ngày, các bạn theo dõi nhé!
+                </p>
+              </div>
+              <div class="see_more color_gray">
+                <a href="https://43factory.coffee/ca-phe-specialty/"
+                  >Xem tiếp</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="community container">
+          <div class="top">
+            <div class="title">
+              <h3>Cộng đồng</h3>
+              <p>Những người giúp chúng tôi xây dựng một thế giới tuyệt vời</p>
+            </div>
+            <div class="see_more">
+              <a href="https://43factory.coffee/ca-phe-specialty/">Xem tiếp</a>
+            </div>
+          </div>
+          <div class="community_swiper">
+            <ion-icon
+              class="btn btn-previous"
+              name="arrow-back-outline"
+            ></ion-icon>
+            <div class="item_wrapper container">
+              <div class="item_row">
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+                <a class="item">
+                  <div class="item_img">
+                    <img src="../asset/img/community1.jpg " alt="" />
+                  </div>
+                  <div class="item_content">
+                    <h3>Danche</h3>
+                    <p>Trạm sơ chế</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <ion-icon
+              class="btn btn-next"
+              name="arrow-forward-outline"
+            ></ion-icon>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div class="footer_top container">
+          <div class="footer_top_left">
+            <ul>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconjcb-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconmatercard-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconvisa-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202005110511-icon-amex-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="footer_top_right">
+            <ul>
+              <li>
+                <a href="https://s.net.vn/2Q29" target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_google.png"
+                    alt="google"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_facebook.png"
+                    alt="facebook"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_instagram.png"
+                    alt="instagram"
+                /></a>
+              </li>
+
+              <li>
+                <a target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_twitter.png"
+                    alt="twitter"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_youtube.png"
+                    alt="youtube"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_pinterest.png"
+                    alt="pinterest"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer_bottom container">
+          <div class="footer_bottom_left">
+            <p>
+              <span
+                ><strong
+                  >CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI DỊCH VỤ 47</strong
+                ></span
+              >
+            </p>
+            <p>
+              <span
+                >Địa chỉ: 137 Nguyễn Thị Thập, Hòa Minh, Liên Chiểu, Đà
+                Nẵng</span
+              >
+            </p>
+            <p>
+              <span>Số điện thoại: 0799343943</span>
+            </p>
+            <p>
+              <span>Email: infor@47factory.coffee</span>
+            </p>
+          </div>
+          <div class="footer_bottom_right">
+            <p>
+              <img
+                src="https://43factory.coffee/wp-content/uploads/2020/06/202006110733-dang-ky-website-voi-bo-cong-thuong-3-e1591860823322.jpg"
+                width="100"
+                height="31"
+              />
+              <img
+                src="https://images.dmca.com/Badges/dmca_protected_16_120.png?ID=18999cf2-ec28-41ad-9f63-34caa63d91c4"
+                width="100"
+                height="31"
+              />
+            </p>
+            <p>
+              <span>Giấy chứng nhận Đăng ký Kinh doanh số 0401983565</span>
+              <br />
+              <span
+                >do Sở Kế hoạch và Đầu tư Thành phố Đà Nẵng cấp ngày
+                18/06/2019</span
+              >
+            </p>
+            <p>
+              <a>Chính sách sử dụng</a>
+              <a>Chính sách bảo mật</a>
+              <a>Chính sách thanh toán</a>
+              <a>Chính sách vận chuyển </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="../asset/js/swiper.js"></script>
+    <script src="../asset/js/main.js"></script>
+  </body>
+</html>

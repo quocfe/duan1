@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /PRO1014/
+
+RewriteRule ^([^/]+)/([^/]+)$ index.php?module=$1&action=$2 [L]

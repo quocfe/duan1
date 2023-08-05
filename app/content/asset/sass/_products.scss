@@ -1,0 +1,11 @@
+.products {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  user-select: none;
+}
+.product {
+  position: relative;
+  .item_wrapper {
+    overflow: hidden;
+  }
+}

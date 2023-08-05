@@ -1,0 +1,146 @@
+.account {
+  &_head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #d3d3d3;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    &-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 50px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .form_img {
+      display: flex;
+      flex-direction: column;
+      button {
+        background-color: #0069d9;
+        margin-top: 10px;
+        color: #fff;
+        width: 40%;
+        padding: 10px 5px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+    }
+    .btn_change-img {
+      input[type="file"] {
+        display: none;
+      }
+      label {
+        border: 1px solid #d3d3d3;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2 linear;
+        font-weight: 500;
+        &:hover {
+          border: 1px solid #8d8d8d;
+        }
+      }
+    }
+  }
+  &_info {
+    &-head {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    &-main {
+      .form_account {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        &.edit {
+          .form_group {
+            input,
+            select {
+              display: block;
+            }
+            p {
+              display: none;
+            }
+          }
+        }
+      }
+      .form_group {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        label {
+          margin-bottom: 10px;
+        }
+        input {
+          outline: none;
+          padding: 10px 20px;
+          border: 1px solid #d3d3d3;
+          border-radius: 10px;
+          display: none;
+        }
+        select {
+          display: none;
+          border-radius: 10px;
+          padding: 10px;
+        }
+        p {
+          padding: 10px 20px;
+          background-color: #d3d3d3;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+  &_btn {
+    margin-left: auto;
+    width: 180px;
+    margin-top: 20px;
+    a {
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    &.edit {
+      display: flex;
+      width: 230px;
+      gap: 10px;
+      font-size: 14px;
+      .edit {
+        // background-color: #0069d9;
+        display: none;
+      }
+      .update {
+        // background-color: #208537;
+        display: block;
+        padding: 0 10px;
+        color: #fff;
+      }
+      .cancel {
+        display: block;
+      }
+    }
+    .edit {
+      background-color: #0069d9;
+      // display: none;
+    }
+    .update {
+      background-color: #208537;
+      display: none;
+    }
+    .cancel {
+      background-color: #dc3545;
+      display: none;
+    }
+  }
+}

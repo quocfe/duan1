@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../asset/img/LOGO47FACTORY.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <title>47 Factory</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container">
+          <div class="header_logo">
+            <a href="./index.html">
+              <img
+                class="header_logo"
+                src="../asset/img/LOGOSIMPLE47FACTORY.png"
+                alt="logo"
+              />
+            </a>
+          </div>
+          <ul>
+            <li class="nav">
+              <a href="#">Chúng tôi</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./philosophy.html">Sứ mệnh</a></li>
+                <li><a href="">Địa điểm</a></li>
+                <li><a href="">Cộng đồng</a></li>
+                <li><a href="">Tuyển dụng</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./store.html">Cửa hàng</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="">Cà phê specially</a></li>
+                <li><a href="">Gói thuê bao</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Trải nghiệm</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <li><a href="./news.html">Tin tức</a></li>
+                <li><a href="">Coffee guides</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="#">Hợp tác</a>
+              <box-icon class="icon"></box-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Hỗ trợ</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+            </li>
+            <li class="nav">
+              <a href="#">Tài khoản</a>
+              <ion-icon name="chevron-down-outline" class="icon"></ion-icon>
+              <ul class="sub_nav">
+                <!-- <li><a href="">Thông tin tài khoản</a></li>
+                <li><a href="">Theo dõi đơn hàng</a></li>
+                <li><a href="">Đăng xuất</a></li> -->
+                <li><a href="./login.html">Đăng nhập</a></li>
+                <li><a href="./register.html">Đăng ký</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <a href="./cart.html">Giỏ hàng</a>
+            </li>
+          </ul>
+          <div class="search">
+            <ion-icon
+              onclick="toggleSearchForm()"
+              class="icon"
+              name="search-outline"
+            ></ion-icon>
+            <div id="overlay" class="overlay">
+              <div class="searchForm">
+                <input type="text" placeholder="Enter your search " />
+                <ion-icon
+                  onclick="toggleSearchForm()"
+                  name="close-outline"
+                  class="icon_close"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="main main_page container">
+        <div class="breadcrumb">
+          <div class="breadcrumb_custom">
+            <a href="">CỬA HÀNG</a>
+            <span style="padding: 0px 5px">|</span>
+            <a href="https://43factory.coffee/ca-phe-specialty/"
+              >CÀ PHÊ SPECIALTY</a
+            >
+          </div>
+        </div>
+        <div class="detail_product_wrapper">
+          <div class="detail_product">
+            <div class="top">
+              <div class="product_img">
+                <div class="img">
+                  <img
+                    src="../asset/img/shaya-specialty-coffee-1-1200x1200.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="product_info">
+                <h2>Dimma #035</h2>
+                <p class="product_price">700,000 VNĐ</p>
+                <ul class="product_category">
+                  <li>
+                    <span class="type">Xuất xứ</span>
+                    <span class="value">Ethiopia</span>
+                  </li>
+                  <li>
+                    <span class="type">Vùng</span>
+                    <span class="value">Bench Maji Zone</span>
+                  </li>
+                  <li>
+                    <span class="type">Nông trại</span>
+                    <span class="value">Dimma</span>
+                  </li>
+                  <li>
+                    <span class="type">Giống</span>
+                    <span class="value">Illubabor Forest</span>
+                  </li>
+                  <li>
+                    <span class="type">Năm thu hoạch</span>
+                    <span class="value">01/2022</span>
+                  </li>
+                  <li>
+                    <span class="type">Độ cao</span>
+                    <span class="value">1909 - 2069 masl</span>
+                  </li>
+                  <li>
+                    <span class="type">Phương pháp sơ chế</span>
+                    <span class="value">Washed</span>
+                  </li>
+                  <li>
+                    <span class="type">Trọng lượng</span>
+                    <span class="value">250 gram</span>
+                  </li>
+                </ul>
+                <div class="product_filter" id="accordion">
+                  <div class="product_filter_item">
+                    <div class="filter_head">
+                      <p class="">HỒ SƠ HƯƠNG VỊ</p>
+                      <ion-icon class="icon" name="add-outline"></ion-icon>
+                    </div>
+                    <div class="filter_body">
+                      <div class="filter_body_inner">
+                        <p>Peach, Tangerine, Vanilla</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product_filter_item">
+                    <div class="filter_head">
+                      <p class="">HỒ SƠ HƯƠNG VỊ</p>
+                      <ion-icon class="icon" name="add-outline"></ion-icon>
+                    </div>
+                    <div class="filter_body">
+                      <div class="filter_body_inner">
+                        <p>Peach, Tangerine, Vanilla</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product_buy">
+                  <p class="quanlity_text">Số lượng</p>
+                  <div class="quanlity_btn">
+                    <div class="quanlity_btn_inner">
+                      <ion-icon
+                        class="icon"
+                        name="arrow-up-outline"
+                        onclick="handleChangeQuanlity('plus')"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icon"
+                        name="arrow-down-outline"
+                        onclick="handleChangeQuanlity('minus')"
+                      ></ion-icon>
+                    </div>
+                    <input type="text" value="1" class="number_quality" />
+                  </div>
+                  <div class="see_more-btn">
+                    <a>Add to cart</a>
+                    <div class="spinner"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detail_product-taste">
+          <h4 class="heading">CHAKA BY GESHA VILLAGE COFFEE ESTATE</h4>
+          <p class="seri">Lot: 094</p>
+          <ul>
+            <li>
+              <p>Farm</p>
+              <p>Forest</p>
+            </li>
+            <li>
+              <p>Location</p>
+              <p>Bench Maji Zone</p>
+            </li>
+            <li>
+              <p>Shade</p>
+              <p>
+                Agroforestry system with a mix of indigenous shade tree
+                varieties
+              </p>
+            </li>
+            <li>
+              <p>Soil</p>
+              <p>Virgin forest, brown-red loamy soil</p>
+            </li>
+            <li>
+              <p>Temperature Amplitude</p>
+              <p>9 – 30˚C</p>
+            </li>
+            <li>
+              <p>Wildlife</p>
+              <p>
+                Variety of birds, wild boar, deer, cheetah, buffalo, lion,
+                colobus monkey, hyena, porcupine, rabbit, and other endemic
+                species
+              </p>
+            </li>
+            <li>
+              <p>Rainfall</p>
+              <p>2000 mm/year</p>
+            </li>
+            <li>
+              <p>Humidity</p>
+              <p>10 – 90%</p>
+            </li>
+          </ul>
+          <h4 class="heading">HỒ SƠ RANG</h4>
+          <img
+            src="https://43factory.coffee/wp-content/uploads/2023/04/202304250456-CHAKA-094-1.jpg"
+            alt=""
+          />
+          <h4 class="heading">KHUYẾN CÁO BẢO QUẢN VÀ SỬ DỤNG</h4>
+          <p>
+            <span class="recommended_use"
+              >– Cà phê mong muốn được nghỉ ngơi ở nơi thoáng mát tránh ánh nắng
+              và túi kín;</span
+            >
+            <span class="recommended_use"
+              >– Cà phê của chúng tôi đạt đỉnh hương vị sau 04 tuần từ ngày
+              rang;</span
+            >
+            <span class="recommended_use"
+              >– Cà phê của chúng tôi giữ vững phổ hương trong vòng 06 tháng từ
+              khi mở túi, và chất lượng giảm dần sau đó;</span
+            >
+            <span class="recommended_use"
+              >– Cà phê của chúng tôi được đóng gói bằng công nghệ khóa chặt
+              hương vị nên bảo quản được 02 năm từ ngày sản xuất khi không mở
+              túi. Chúng tôi cũng khuyến cáo không sử dụng vào lần mở túi đầu
+              tiên, hãy mở và đóng túi chờ đợi thêm 3 ngày để giải phóng hoàn
+              toàn công nghệ đóng gói khóa chặt hương vị;</span
+            >
+            <span class="recommended_use"
+              >– Cà phê của chúng tôi sẽ thể hiện rõ mô tả hương vị sau 03 ngày
+              từ khi bạn thao tác mở và đóng kín túi ở lần đầu tiên.</span
+            >
+          </p>
+          <h4 class="heading">ĐIỀU KIỆN NƯỚC TIÊU CHUẨN CHO NƯỚC PHA CÀ PHÊ</h4>
+          <ul>
+            <li>
+              <p>Calcium Hardness</p>
+              <p>10 ppm CaCO3</p>
+            </li>
+            <li>
+              <p>Magnesium Hardness</p>
+              <p>58 ppm CaCO3</p>
+            </li>
+            <li>
+              <p>Total Alkalinity</p>
+              <p>10 ppm CaCO3</p>
+            </li>
+            <li>
+              <p>Sodium</p>
+              <p>10 ppm CaCO3</p>
+            </li>
+          </ul>
+        </div>
+        <div class="comment_box">
+          <div class="head_box">
+            <div class="head_box_inner">
+              <div class="ava">
+                <img src="../asset/img/user.jpg" alt="" />
+              </div>
+              <input type="text" placeholder="Enter your comment" />
+              <a class="btn_sent">
+                <ion-icon class="icon" name="paper-plane-outline"></ion-icon>
+              </a>
+            </div>
+            <div class="rating">
+              <input type="hidden" name="star" class="rateHidden" />
+              <div class="item">
+                <div icon="star" class="icon is-active" style="cursor: pointer">
+                  <svg
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="icon_star"
+                    fill="black"
+                    data-index="0"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="item">
+                <div icon="star" class="icon is-active" style="cursor: pointer">
+                  <svg
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="icon_star"
+                    fill="black"
+                    data-index="0"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="item">
+                <div icon="star" class="icon is-active" style="cursor: pointer">
+                  <svg
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="icon_star"
+                    fill="black"
+                    data-index="0"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="item">
+                <div icon="star" class="icon is-active" style="cursor: pointer">
+                  <svg
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="icon_star"
+                    fill="black"
+                    data-index="0"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="item">
+                <div icon="star" class="icon is-active" style="cursor: pointer">
+                  <svg
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="icon_star"
+                    fill="black"
+                    data-index="0"
+                  >
+                    <path
+                      d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="user_comment-box">
+            <div class="comment">
+              <div class="infor">
+                <div class="ava">Q</div>
+                <p class="name">Nguyễn phú quốc</p>
+              </div>
+              <div class="box">
+                <p>lore</p>
+                <div class="rated">
+                  <div class="item">
+                    <div
+                      icon="star"
+                      class="icon is-active"
+                      style="cursor: pointer"
+                    >
+                      <svg
+                        height="15"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512"
+                        class="icon_star"
+                        fill="#f59e0b"
+                        data-index="0"
+                      >
+                        <path
+                          d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="infor">
+                <div class="ava">Q</div>
+                <p class="name">Nguyễn phú quốc</p>
+              </div>
+              <div class="box">
+                <p>lore</p>
+                <div class="rated">
+                  <div class="item">
+                    <div
+                      icon="star"
+                      class="icon is-active"
+                      style="cursor: pointer"
+                    >
+                      <svg
+                        height="15"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512"
+                        class="icon_star"
+                        fill="#f59e0b"
+                        data-index="0"
+                      >
+                        <path
+                          d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div class="footer_top container">
+          <div class="footer_top_left">
+            <ul>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconjcb-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconmatercard-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202003260717-iconvisa-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+              <li>
+                <img
+                  src="https://43factory.coffee/wp-content/uploads/202005110511-icon-amex-0x0.png"
+                  alt="matercard"
+                />
+              </li>
+            </ul>
+          </div>
+          <div class="footer_top_right">
+            <ul>
+              <li>
+                <a href="https://s.net.vn/2Q29" target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_google.png"
+                    alt="google"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_facebook.png"
+                    alt="facebook"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_instagram.png"
+                    alt="instagram"
+                /></a>
+              </li>
+
+              <li>
+                <a target="_blank"
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_twitter.png"
+                    alt="twitter"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_youtube.png"
+                    alt="youtube"
+                /></a>
+              </li>
+
+              <li>
+                <a
+                  ><img
+                    src="https://43factory.coffee/wp-content/themes/soteco/resources/images/icon_pinterest.png"
+                    alt="pinterest"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer_bottom container">
+          <div class="footer_bottom_left">
+            <p>
+              <span
+                ><strong
+                  >CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI DỊCH VỤ 47</strong
+                ></span
+              >
+            </p>
+            <p>
+              <span
+                >Địa chỉ: 137 Nguyễn Thị Thập, Hòa Minh, Liên Chiểu, Đà
+                Nẵng</span
+              >
+            </p>
+            <p>
+              <span>Số điện thoại: 0799343943</span>
+            </p>
+            <p>
+              <span>Email: infor@47factory.coffee</span>
+            </p>
+          </div>
+          <div class="footer_bottom_right">
+            <p>
+              <img
+                src="https://43factory.coffee/wp-content/uploads/2020/06/202006110733-dang-ky-website-voi-bo-cong-thuong-3-e1591860823322.jpg"
+                width="100"
+                height="31"
+              />
+              <img
+                src="https://images.dmca.com/Badges/dmca_protected_14_120.png?ID=18999cf2-ec28-41ad-9f63-34caa63d91c4"
+                width="100"
+                height="31"
+              />
+            </p>
+            <p>
+              <span>Giấy chứng nhận Đăng ký Kinh doanh số 0401983565</span>
+              <br />
+              <span
+                >do Sở Kế hoạch và Đầu tư Thành phố Đà Nẵng cấp ngày
+                18/06/2019</span
+              >
+            </p>
+            <p>
+              <a>Chính sách sử dụng</a>
+              <a>Chính sách bảo mật</a>
+              <a>Chính sách thanh toán</a>
+              <a>Chính sách vận chuyển </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="../asset/js/swiper.js"></script>
+    <script src="../asset/js/main.js"></script>
+  </body>
+</html>

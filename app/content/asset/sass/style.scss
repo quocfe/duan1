@@ -1,0 +1,26 @@
+// sass --watch app/content/asset/sass/style.scss app/content/asset/css/style.css
+
+@import "./reset";
+@import "./global";
+@import "./swiper";
+@import "./header";
+@import "./products";
+@import "./detail_product";
+@import "./story";
+@import "./community";
+@import "./store";
+@import "./philosophy";
+@import "./news";
+@import "./login";
+@import "./cart";
+@import "./process_pay";
+@import "./comment_box";
+@import "./invoice";
+@import "./member";
+@import "./order";
+@import "./detail_order";
+@import "./account";
+@import "./success";
+@import "./toast";
+@import "./change_password";
+@import "./footer";
