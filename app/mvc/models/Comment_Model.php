@@ -8,6 +8,12 @@ class Comment_Model extends Base_Model {
     $this->pdo_execute( $sql, $cmt_content, $user_id, $pdt_id, $cmt_date, $cmt_time);
   }
 
+  public function delete_cmt ($cmt_id) {
+    $sql1 = "DELETE FROM commentreply WHERE cmt_id = ?";
+    $sql2 = "DELETE FROM comment WHERE cmt_id = ?";
+    $this->pdo_query($sql1, $cmt_id);
+    $this->pdo_query($sql2, $cmt_id);
+  }
 
   public function select_cmt_by_product($pdt_id, $limit = 10) {
     $sql = "SELECT comment.*, users.user_fullname, users.user_img, users.user_role FROM comment

@@ -36,6 +36,8 @@ class Product_Controller extends Base_Controller {
 
     $product = $product_model->select_by_id('pdt', $id);
     $cate_name = $cate_model->select_by_id('cate',$product['cate_id']);
+    $replys = $reply_model->select_all() ;
+  
     $product_model->view('pdt', $id);
 
     
@@ -82,6 +84,25 @@ class Product_Controller extends Base_Controller {
         exit;
       }
     }
+
+    if (isset($_POST['delete_cmt'])) {
+      $cmt_id = $_POST['delete_cmt'];
+      $comment_model->delete_cmt($cmt_id);
+    }
+
+    if (isset($_POST['delete_repcmt'])) {
+      $cmt_id = $_POST['delete_repcmt'];
+      $reply_model->delete_repcmt($cmt_id);
+    }
+
+    foreach($replys as $reply) {
+      if (isset($_POST['update_replycmt'. $reply["reply_id"].''])) {
+        $reply_text = $_POST['edit_reply'. $reply["reply_id"].''];
+        $reply_id = $_POST['reply_id'. $reply["reply_id"].''];
+        $reply_model->update_repcmt($reply_text, $reply_id);
+      }
+    }
+    
 
     if (isset($_POST['reply_btn'])) {
       $reply_content = $_POST['reply_content'];

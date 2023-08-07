@@ -12,7 +12,10 @@
     crossorigin="anonymous" />
   <title>47 Factory</title>
 </head>
-
+<style>
+<?php include CONTENT_PATH."/asset/css/style.css";
+?>
+</style>
 
 <body>
   <div class="wrapper">
@@ -46,6 +49,11 @@
   <script src="https://kit.fontawesome.com/8813097242.js" crossorigin="anonymous"></script>
   <script src="<?= CONTENT_URL ?>/asset/js/swiper.js"></script>
   <script src="<?= CONTENT_URL ?>/asset/js/main.js"></script>
+  <script src="<?= CONTENT_URL ?>/asset/js/main.js"></script>
+  <script>
+  <?php include CONTENT_PATH."/asset/js/main.js";
+?>
+  </script>
   <script>
   setTimeout(() => {
     (function() {

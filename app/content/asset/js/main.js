@@ -457,13 +457,30 @@ if (document.querySelector(".form")) {
 
 if (document.querySelector(".comment")) {
   const comments = document.querySelectorAll(".comment");
-
+  const editBtns = document.querySelectorAll(".edit_btn");
   comments.forEach((comment) => {
     const reply_btn = comment.querySelectorAll(".reply_btn");
     reply_btn.forEach((btn) => {
       btn.addEventListener("click", () => {
         const reply_text = comment.querySelector(".reply_text");
         reply_text.classList.toggle("show");
+      });
+    });
+  });
+
+  editBtns.forEach((editBtn) => {
+    editBtn.addEventListener("click", () => {
+      const box = editBtn.parentElement.parentElement;
+      const box_edit = box.previousElementSibling;
+      box.classList.toggle("hidden");
+      box_edit.classList.toggle("hidden");
+
+      const cancel_edit = box_edit.querySelector(".cancel_edit");
+      cancel_edit.addEventListener("click", () => {
+        const box_edit = cancel_edit.parentElement;
+        const box = box_edit.nextElementSibling;
+        box.classList.toggle("hidden");
+        box_edit.classList.toggle("hidden");
       });
     });
   });

@@ -163,8 +163,21 @@
         </div>
         <div class="box">
           <p><?=$comment['cmt_content']?></p>
-          <div class="reply_btn">
-            <ion-icon name="arrow-redo-outline"></ion-icon>
+          <div class="option_btn">
+            <div class="reply_btn">
+              <ion-icon name="arrow-redo-outline"></ion-icon>
+            </div>
+            <?php 
+            if (!empty($_SESSION['user'])) {
+              if ($_SESSION['user']["user_id"] == $comment['user_id'] ) {
+                ?>
+            <button type="submit" name="delete_cmt" value="<?=$comment['cmt_id']?>" class="delete_btn">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+            <?php
+              }
+            }
+          ?>
           </div>
         </div>
         <?php 
@@ -204,10 +217,37 @@
                 <p><?=$reply_comment['reply_date']?></p>
               </div>
             </div>
-            <div class="box">
+            <div class="box_edit hidden">
+              <input name="edit_reply<?=$reply_comment['reply_id']?>" value="<?=$reply_comment['reply_text']?>" />
+              <input type="hidden" name="reply_id<?=$reply_comment['reply_id']?>"
+                value="<?=$reply_comment['reply_id']?>" />
+              <button type="submit" name="update_replycmt<?=$reply_comment['reply_id']?>" class="btn_sent">
+                <ion-icon class="icon" name="paper-plane-outline"></ion-icon>
+              </button>
+              <div class="cancel_edit">
+                <ion-icon name="close-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="box ">
               <p><?=$reply_comment['reply_text']?></p>
-              <div class="reply_btn">
-                <ion-icon name="arrow-redo-outline"></ion-icon>
+              <div class="option_btn">
+                <div class="reply_btn">
+                  <ion-icon name="arrow-redo-outline"></ion-icon>
+                </div>
+                <?php 
+            if (!empty($_SESSION['user'])) {
+              if ($_SESSION['user']["user_id"] == $reply_comment['user_id'] ) {
+                ?>
+                <button type="submit" name="delete_repcmt" value="<?=$reply_comment['reply_id']?>" class="delete_btn">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+                <div class="edit_btn">
+                  <ion-icon name="create-outline"></ion-icon>
+                </div>
+                <?php
+              }
+            }
+          ?>
               </div>
             </div>
           </div>
@@ -216,7 +256,7 @@
             }
           }
         ?>
-        <form method="post">
+        <form method=" post">
           <input type="hidden" name="cmt_id" value="<?=$comment['cmt_id']?>">
           <input type="hidden" name="user_id" value="<?=$_SESSION['user']['user_id']?>">
           <div class="reply_text ">

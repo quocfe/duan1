@@ -6,6 +6,16 @@ class Commentreply_Model extends Base_Model {
       $sql = "INSERT INTO commentreply (cmt_id,	user_id,	reply_text,	reply_date) VALUES (?,?,?,?)";
       $this->pdo_execute($sql, $cmt_id,	$user_id,	$reply_text,	$reply_date);
     }
+    
+    public function delete_repcmt($reply_id) {
+      $sql = "DELETE FROM commentreply WHERE reply_id = ?";
+      $this->pdo_execute($sql, $reply_id);
+    }
+
+    public function update_repcmt ($reply_text, $reply_id) {
+      $sql = "UPDATE commentreply SET reply_text=? WHERE reply_id=?";
+      $this->pdo_execute($sql, $reply_text, $reply_id);
+    }
 
     public function select_reply () {
       $sql = "SELECT commentreply.*, users.user_fullname, users.user_img, users.user_role FROM `commentreply` 

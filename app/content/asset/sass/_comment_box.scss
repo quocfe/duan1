@@ -82,21 +82,64 @@
       border-radius: 10px;
       box-shadow: 0 0 10px 0 rgba(60, 64, 67, 0.1),
         0 2px 6px 2px rgba(60, 64, 67, 0.15);
+      .option_btn {
+        display: flex;
+        align-items: center;
+        .delete_btn {
+          margin-top: 10px;
+          margin-left: 10px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        .edit_btn {
+          margin-top: 10px;
+          margin-left: 10px;
+        }
+        .reply_btn {
+          margin-left: auto;
+          margin-top: 10px;
+          position: relative;
+          width: 64px;
+          cursor: pointer;
+          &::after {
+            content: "Trả lời";
+            position: absolute;
+            font-size: 14px;
+          }
+        }
+      }
       p {
         width: 100%;
         text-align: justify;
       }
-      .reply_btn {
-        margin-left: auto;
-        margin-top: 10px;
-        position: relative;
-        width: 64px;
+      &.hidden {
+        display: none;
+      }
+    }
+    .box_edit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      background-color: #fff;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 0 rgba(60, 64, 67, 0.1),
+        0 2px 6px 2px rgba(60, 64, 67, 0.15);
+      input {
+        outline: none;
+        border: none;
+        background-color: #fff;
+        width: 90%;
+        word-wrap: break-word;
+      }
+      &.hidden {
+        display: none;
+      }
+      .cancel_edit {
         cursor: pointer;
-        &::after {
-          content: "Trả lời";
-          position: absolute;
-          font-size: 14px;
-        }
       }
     }
   }
