@@ -22,7 +22,4 @@ ob_end_clean();
 - checkout -> cod -> sucess -> show sucess page (option: invoice || detail_order) -> insert database
 - checkout -> momo -> goto qr -> sucess -> show sucess page (option: invoice || detail_order) -> insertdatabase
 
-- mã hóa password
-
-- ko cho cập nhật tên đăng nhập
   -Nhân viên quản trị không được phép xóa chính mình.

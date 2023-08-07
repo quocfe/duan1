@@ -32,7 +32,7 @@ extract($_SESSION['user']);
           </div>
           <div class="form_group">
             <label for="">Tên đăng nhập</label>
-            <input type="text" name="username" id="" value="<?= $user_username ?>">
+            <input readonly type="text" name="username" id="" value="<?= $user_username ?>">
             <p><?= $user_username ?></p>
           </div>
           <div class="form_group">

@@ -23,12 +23,18 @@ use PHPMailer\PHPMailer\Exception;
         $address = '';
         $user_gender = '';
         $img = 'defaut.jpg';
+        $minlength = 6;
+        $length = strlen($username);
 
 
         if (empty($_POST["username"])) {
           $errors['username'] = "Trường này không được để trống!";
         }else if ($users->user_exist($username)) {
           $errors['username'] = "Tên đăng nhập đã tồn tại!";
+        } else if ($length < $minlength) {
+          $errors['username'] = "Tối thiểu $minlength kí tự ";
+        } else if (strpos($username, ' ') !== false) {
+          $errors['username'] = "Tên người dùng không được chứa khoảng trắng.";
         } else {
           $textValid['username'] = $username;
         }
@@ -55,7 +61,9 @@ use PHPMailer\PHPMailer\Exception;
         }
 
         if (empty($errors)) {
-          $users->insert($username, $fullname	,$password ,$img	,$email, $address,$user_gender, $user_role = 0, $user_active = 1);
+          $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+          $users->insert($username, $fullname	,$hashedPassword ,$img	,$email, $address,$user_gender, $user_role = 0, $user_active = 1);
+
           echo '<script>';
           echo "alert('Đăng ký thành công')";
           echo '</script>';
@@ -85,8 +93,8 @@ use PHPMailer\PHPMailer\Exception;
         if ($checkUserName) {
             $textValid['userName'] = $emailOrName; 
             $checkPassword = $Users_model->user_password($emailOrName);
-            if ($checkPassword["user_password"] === $password ) {
-              $account = $Users_model->login( $emailOrName, $password);
+            if (password_verify($password , $checkPassword["user_password"])) {
+              $account = $Users_model->login( $emailOrName, $checkPassword["user_password"]);
               if (!empty($account)) {
                   $errors['userName'] = ' ';
                   $errors['password'] = ' ';
@@ -283,36 +291,131 @@ use PHPMailer\PHPMailer\Exception;
                 $user_mail = $user[0]["user_mail"];
                 $user_fullname = $user[0]["user_fullname"];
 
-                $password = bin2hex(random_bytes(6));
+                $otp = rand(100000,999999);
+                $_SESSION['otp'] = $otp;
+                $_SESSION['user_forget'] = $id;
                 
-                $Users_model->update_password($password, $id);;
+                $this->sendEmailConfirmation($user_mail, $otp, $user_fullname );
 
-                $this->sendEmailConfirmation($user_mail, $password, $user_fullname );
+                header('location:'.base_url('users/confirm_otp').'');
               }
-          }
-        } 
+          };
+        }  else {
+              $errors['emptyMail'] = "Vui lòng nhập mail";
+        }
       }
+
       $this->view->load('site/users/forget_pass', [
+        'errors' => $errors,
+        
+      ]);
+
+    }
+    public function sendEmailConfirmation($user_mail, $otp, $user_fullname )
+    {
+
+        $html = "
+                <!DOCTYPE html>
+        <html lang='en'>
+          <head>
+            <meta charset='UTF-8' />
+            <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            <title>Document</title>
+          </head>
+          <style></style>
+          <body>
+            <div class='wrapper'>
+              <div class=' style='max-width: 500px; margin: 0 auto'>
+                <h1
+                  style='
+                    background-color: #000;
+                    color: #fff;
+                    text-align: center;
+                    padding: 20px 0px;
+                  '
+                >
+                  Mã xác thực OTP!
+                </h1>
+
+                <div class=' style='margin: 30px auto; width: 100px'>
+                  <span
+                    style='
+                      border: 1px solid #000;
+                      padding: 10px 20px;
+                      font-size: 20px;
+                      font-weight: 600;
+                      border-radius: 5px;
+                      width: 100%;
+                    '
+                    >$otp</span
+                  >
+                </div>
+              </div>
+            </div>
+          </body>
+        </html>";
+
+        $subject = 'OTP';
+        $body = $html ;
+
+        $headers = array (
+          "MIME-Version: 1.0",
+          "Content-type:text/html;charset=UTF-8"
+        );
+
+        // Gửi email
+        $this->sendEmail($user_mail, $user_fullname, $subject, $body, $headers);
+    }
+
+    public function sendEmail($user_mail, $user_fullname , $subject, $body,$headers)
+    {
+      $this->lib->load('Sentmail');
+      $mail = new Sentmail();
+      $mail->sent($user_mail, $user_fullname , $subject, $body,$headers);
+    }
+
+    public function confirm_otp () {
+      $this->helper->load('url');
+      $this->model->load('users');
+      
+      $Users_model = new Users_Model();
+
+      $errors = [];
+      if (isset($_POST['request_newpass'])) {
+
+        $otp = $_POST['otp'];
+        $password = $_POST['password'];
+        $comfirmPassword = $_POST['comfirmPassword'];
+
+        if (empty($otp)) {
+          $errors['password'] = 'Không được để trống';
+        } else  if ($_SESSION['otp'] == $otp) {
+            if (empty($password)) {
+              $errors['password'] = 'Không được để trống';
+            }
+            if ($password !=  $comfirmPassword) {
+              $errors['password'] = 'Mật khẩu không khớp';
+            }
+
+            if (empty($errors)) {
+              try {
+                $Users_model->update_password($password, $_SESSION['user_forget']);
+                echo '<script>';
+                echo "alert('Đăng ký thành công')";
+                echo '</script>';
+                header('location:'.base_url('users/confirm_otp').'');
+              } catch (Exception $e) {
+              }
+            }
+        } else {
+          $errors['otp'] = 'Mã OTP không hợp lệ!';
+        }
+
+      }
+      $this->view->load('site/users/confirm_otp', [
         'errors' => $errors
       ]);
 
     }
-    public function sendEmailConfirmation($user_mail, $password, $user_fullname )
-    {
-        $subject = 'Reset password';
-        $body = 'Mật khẩu mới của bạn là: ' . $password;
-
-        // Gửi email
-        $this->sendEmail($user_mail, $user_fullname , $subject, $body);
-    }
-
-    public function sendEmail($user_mail, $user_fullname , $subject, $body)
-    {
-      $this->lib->load('Sentmail');
-      $mail = new Sentmail();
-      $mail->sent($user_mail, $user_fullname , $subject, $body);
-      
-    }
-
     
   }

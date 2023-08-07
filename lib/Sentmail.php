@@ -8,7 +8,7 @@ require 'PHPMailer/src/SMTP.php';
 
   
 class Sentmail  {
-  public function sent ($user_mail, $user_fullname , $subject, $body) {
+  public function sent ($user_mail, $user_fullname , $subject, $body, $headers) {
       $mail = new PHPMailer(true);
             try {
         $mail->SMTPDebug = 0;                     
@@ -36,6 +36,10 @@ class Sentmail  {
         $mail->Subject = $subject;
         $mail->Body    = $body;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        foreach ($headers as $header) {
+          $mail->addCustomHeader($header);
+        }
 
         $mail->send();
         $success = 'Mật khẩu mới đã được gửi tới mail của bạn! Vui lòng kiểm tra mail';

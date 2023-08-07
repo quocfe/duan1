@@ -3,9 +3,9 @@
   <form method="post" class="login_page foger_pass">
     <div class="login">
       <h3>Mật khẩu mà cũng quên ?</h3>
-      <p class="message">
+      <p class="message" style="line-height: 1.5;">
         Vui lòng nhập địa chỉ email. <br>
-        Bạn sẽ nhận được mật khẩu mới qua email.
+        Bạn sẽ nhận được mã OTP qua email.
       </p>
       <div class="input">
         <div class="form_group">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="see_more-btn">
-        <button type="submit" name="request_pass" class="">Đặt lại mật khẩu</button>
+        <button type="submit" name="request_pass" class="">Lấy mã OTP</button>
       </div>
     </div>
   </form>
