@@ -54,7 +54,7 @@
           }
         ?>
         <li><a href="<?= base_url('users/member') ?>">Thông tin tài khoản</a></li>
-        <li><a href="">Theo dõi đơn hàng</a></li>
+        <li><a href="<?= base_url('users/order') ?>">Theo dõi đơn hàng</a></li>
         <li><a href="<?= base_url('users/logout') ?>">Đăng xuất</a></li>
         <?php
           } else {

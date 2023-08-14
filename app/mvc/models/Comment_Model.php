@@ -11,6 +11,7 @@ class Comment_Model extends Base_Model {
   public function delete_cmt ($cmt_id) {
     $sql1 = "DELETE FROM commentreply WHERE cmt_id = ?";
     $sql2 = "DELETE FROM comment WHERE cmt_id = ?";
+    
     $this->pdo_query($sql1, $cmt_id);
     $this->pdo_query($sql2, $cmt_id);
   }
@@ -23,6 +24,17 @@ class Comment_Model extends Base_Model {
         
     return $this->pdo_query($sql, $pdt_id);
   }
+
+  public function select_cmt_by_user($pdt_id) {
+    $sql = "SELECT comment.*, users.user_fullname, users.user_username,products.pdt_title FROM comment
+        JOIN products ON products.pdt_id = comment.pdt_id 
+        JOIN users ON users.user_id = comment.user_id 
+        WHERE comment.pdt_id = ? ";
+        
+    return $this->pdo_query($sql, $pdt_id);
+  }
+
+
 
 
 }

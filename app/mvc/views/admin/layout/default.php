@@ -47,6 +47,10 @@
   <script src="https://kit.fontawesome.com/8813097242.js" crossorigin="anonymous"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
   <script>
+  <?php include CONTENT_PATH."/asset/js/dashboard.js";
+?>
+  </script>
+  <script>
   ClassicEditor
     .create(document.querySelector('#content'))
     .catch(error => {

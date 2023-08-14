@@ -2,7 +2,7 @@
   <div class="cards row mt-5">
     <div class="card-single col d-flex justify-content-around bg-success text-white py-5 ml-3">
       <div>
-        <h1 class="font-weight-bold">5</h1>
+        <h1 class="font-weight-bold"><?=$countCate?></h1>
         <span>Danh mục</span>
       </div>
       <div>
@@ -11,7 +11,7 @@
     </div>
     <div class="card-single col d-flex justify-content-around bg-warning text-white py-5 ml-3">
       <div>
-        <h1 class="font-weight-bold">29</h1>
+        <h1 class="font-weight-bold"><?=$countProduct?></h1>
         <span>Sản phẩm</span>
       </div>
       <div>
@@ -20,7 +20,7 @@
     </div>
     <div class="card-single col d-flex justify-content-around bg-danger text-white py-5 ml-3">
       <div>
-        <h1 class="font-weight-bold">8</h1>
+        <h1 class="font-weight-bold"><?=$countUsers?></h1>
         <span>Khách hàng</span>
       </div>
       <div>
@@ -29,7 +29,7 @@
     </div>
     <div class="card-single col d-flex justify-content-around bg-primary text-white py-5 ml-3">
       <div>
-        <h1 class="font-weight-bold">5</h1>
+        <h1 class="font-weight-bold"><?=$countComment?></h1>
         <span>Bình luận</span>
       </div>
       <div>

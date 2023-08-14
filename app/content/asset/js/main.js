@@ -485,3 +485,31 @@ if (document.querySelector(".comment")) {
     });
   });
 }
+
+if (document.querySelector(".edit_order")) {
+  const btnEditBtns = document.querySelectorAll(".btn-edit-order");
+
+  btnEditBtns.forEach((btnEditBtn) => {
+    btnEditBtn.addEventListener("click", (e) => {
+      const editBtn = e.currentTarget;
+      const btnUpate = editBtn.previousElementSibling;
+      const btnCancel = editBtn.nextElementSibling;
+      const selectStatus =
+        e.currentTarget.parentElement.previousElementSibling.children[0];
+      const text =
+        e.currentTarget.parentElement.previousElementSibling.children[1];
+      editBtn.style.display = "none";
+      text.style.display = "none";
+      btnUpate.style.display = "inline-block";
+      selectStatus.style.display = "inline-block";
+      btnCancel.style.display = "inline-block";
+      btnCancel.addEventListener("click", () => {
+        editBtn.style.display = "inline-block";
+        text.style.display = "block";
+        btnUpate.style.display = "none";
+        selectStatus.style.display = "none";
+        btnCancel.style.display = "none";
+      });
+    });
+  });
+}

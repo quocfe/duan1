@@ -44,6 +44,26 @@ class Users_Model extends Base_Model {
     return $this->pdo_query($sql, $email);
   } 
 
+  public function select_user ($user_username) {
+    $sql = "SELECT * FROM `users` WHERE user_username = ?";
+    return $this->pdo_query($sql, $user_username);
+  } 
+
+  public function disable_user ($id) {
+    $sql = "UPDATE users SET user_active = 0 WHERE user_id = ?";
+    $this->pdo_execute($sql, $id);
+  }
+
+
+  public function active_user ($id) {
+    $sql = "UPDATE users SET user_active = 1 WHERE user_id = ?";
+    $this->pdo_execute($sql, $id);
+  }
+  
+  public function count () {  
+    $sql = "SELECT count(*) FROM users";
+    return $this->pdo_query_value($sql);
+  }
 
   public function login ( $username, $password) {
     $sql = "SELECT * FROM users WHERE user_username = ? AND user_password = ?";

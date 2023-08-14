@@ -8,7 +8,7 @@
     <a href="<?= base_url('home/index') ?>"><i class="fas fa-store"></i>Xem trang web</a>
   </li>
   <li>
-    <a href="/ShoppingCenter/admin/trang-chinh/"><i class="fas fa-home"></i>Trang chủ</a>
+    <a href="<?= base_url('admin/index') ?>"><i class="fas fa-home"></i>Trang chủ</a>
   </li>
   <li>
     <a href="#categories" data-bs-toggle="collapse" aria-expanded="false"
@@ -76,14 +76,14 @@
     </ul>
   </li>
   <li>
-    <a href="/ShoppingCenter/admin/binh-luan/">
+    <a href="<?= base_url('admin/list_comment') ?>">
       <i class="fas fa-comments"></i>Bình luận</a>
   </li>
   <li>
-    <a href="/ShoppingCenter/admin/thong-ke/"><i class="fas fa-chart-line"></i>Thống kê</a>
+    <a href="<?= base_url('admin/chart') ?>"><i class="fas fa-chart-line"></i>Thống kê</a>
   </li>
   <li>
-    <a href="/ShoppingCenter/admin/don-hang/"><i class="fas fa-shipping-fast"></i>Đơn hàng</a>
+    <a href="<?= base_url('admin/order') ?>"><i class="fas fa-shipping-fast"></i>Đơn hàng</a>
   </li>
   <li>
     <a href="settings.html"><i class="fas fa-cog"></i>Cài đặt</a>

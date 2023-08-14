@@ -1,3 +1,7 @@
+<?php 
+  var_dump(empty($errors));
+?>
+
 <section class="main main_page container">
   <div class="login_page" style="grid-template-columns:100%;">
     <div class="login" style="margin: 0 auto;">

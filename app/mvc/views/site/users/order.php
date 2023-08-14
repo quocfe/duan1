@@ -25,7 +25,15 @@
             </li>
             <li><?=isset($item["order_id"]) ? $item["order_id"] : ''?></li>
             <li><?=isset($item ["order_total"]) ? number_format($item ["order_total"], 0) : ''?>VNĐ</li>
-            <li>Loading</li>
+            <li style="color: <?php 
+                    if ($item["order_status"] == 'Đã xác nhận') {
+                      echo '#28A745';
+                    } else if ($item["order_status"] == 'Đang xử lý') {
+                      echo '#007BFF';
+                    } else {
+                      echo '#DC3545';
+                    }
+                  ?> "><?=isset($item["order_status"]) ? $item["order_status"] : 'Đang xử lý'?></li>
             <li><a href="<?=  base_url('users/detail_order&id='.$item["order_id"].'')?>">Chi tiết</a></li>
           </ul>
           <?php

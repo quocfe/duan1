@@ -16,12 +16,14 @@
                   value="<?= isset($_SESSION['user']['user_username']) ? $_SESSION['user']['user_username'] : '' ?>"
                   placeholder="Họ và tên" />
                 <span
-                  class="form-message text-danger"><?= isset($error) && empty($_SESSION['user']['user_username']) ? $error : ''?></span>
+                  class="form-message text-danger"><?= isset($errors['empty']) && empty($_SESSION['user']['user_username']) ? $errors['empty'] : ''?></span>
               </div>
               <div class="phonenumber_field form_group">
-                <input class="form-control" name="numberphone" type="text" value="" placeholder="Số điện thoại"
+                <input class="form-control" name="numberphone" type="text"
+                  value="<?=isset( $texts['phonenumber']) ?  $texts['phonenumber'] : ''?>" placeholder="Số điện thoại"
                   autofocus="" />
-                <span class="form-message text-danger"><?= isset($error) ? $error : ''?></span>
+                <span
+                  class="form-message text-danger"><?= isset($errors['phonenumber']) ? $errors['phonenumber'] : ''?></span>
               </div>
             </div>
             <div class="mid_input">
@@ -31,14 +33,14 @@
                   placeholder="abc@gmail.com" />
 
                 <span
-                  class="form-message text-danger"><?= isset($error) && empty($_SESSION['user']['user_username']) ? $error : ''?></span>
+                  class="form-message text-danger"><?= isset($errors['empty']) && empty($_SESSION['user']['user_username']) ? $errors['empty'] : ''?></span>
               </div>
             </div>
             <div class="bottom_input">
               <div class="address_field form_group">
                 <input class="form-control" name="address" type="text" value="" placeholder="137 Nguyễn Thị Thập"
                   autofocus="" />
-                <span class="form-message text-danger"><?= isset($error) ? $error : ''?></span>
+                <span class="form-message text-danger"><?= isset($errors['empty']) ? $errors['empty'] : ''?></span>
               </div>
               <div class="address_field form_group">
                 <label for="" class="note">Ghi chú</label>
@@ -55,7 +57,7 @@
               <div class="select_province">
                 <p class="name_text">Tỉnh/TP</p>
                 <div class="select select_option_province">
-                  <div class="selected <?= isset($error) ? 'empty' : '' ?>  form-control border">
+                  <div class="selected <?= isset($errors['empty']) ? 'empty' : '' ?>  form-control border">
                     <p class="selected_text">Chọn Tỉnh/TP</p>
                     <i class="fa-solid fa-arrow-down"></i>
                     <ul class="option option_provinces"></ul>
@@ -65,7 +67,7 @@
               <div class="select_districts">
                 <p class="name_text">Quận/Huyện</p>
                 <div class="select">
-                  <div class="selected <?= isset($error) ? 'empty' : '' ?> form-control border">
+                  <div class="selected <?= isset($errors['empty']) ? 'empty' : '' ?> form-control border">
                     <p class="selected_text">Chọn Quận/Huyện</p>
                     <i class="fa-solid fa-arrow-down"></i>
                     <ul class="option option_districts"></ul>
@@ -75,7 +77,7 @@
               <div class="select_wards">
                 <p class="name_text">Phường/Xã</p>
                 <div class="select">
-                  <div class="selected <?= isset($error) ? 'empty' : '' ?> form-control border">
+                  <div class="selected <?= isset($errors['empty']) ? 'empty' : '' ?> form-control border">
                     <p class="selected_text">Chọn Phường/Xã</p>
                     <i class="fa-solid fa-arrow-down"></i>
                     <ul class="option option_wards"></ul>

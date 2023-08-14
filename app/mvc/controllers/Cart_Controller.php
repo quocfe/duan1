@@ -37,6 +37,7 @@
 
       public function process_pay () {
         $this->helper->load('url');
+        $this->helper->load('checkPhone');
         $this->helper->load('totalCost');
         $this->helper->load('isset');
         $error = '';
@@ -53,13 +54,20 @@
           $method = $_POST['checkout'];
           $note = $_POST['note'];
           $currentDate = date('Y-m-d'); // Format: YYYY-MM-DD
-          
+          $errors = [];
+          $texts = [];
             if (empty($username) || empty($numberphone) || empty($email) || empty($address) || empty($province) || empty($district) || empty($ward) || empty($method)) {
-                $error = "Vui lòng nhập trường này!";
-                $this->view->load('site/cart/process_pay', [
-                  'error' => $error
-                ]);
+                $errors['empty'] = "Vui lòng nhập trường này!";
+                
+            } 
+            
+            if (!isValidPhoneNumber($numberphone) ) {
+                  $errors['phonenumber'] = "Số điện thoại không hợp lệ!";
             } else {
+                $texts['phonenumber'] = $numberphone;
+            }
+            
+            if (empty($errors)) {
                 $data = array(
                   'username' => $username,
                   'numberphone' => $numberphone,
@@ -74,7 +82,9 @@
             }
         }
 
-        $this->view->load('site/cart/process_pay');
+        $this->view->load('site/cart/process_pay', [
+          'errors' => $errors
+        ]);
 
       }
 
@@ -91,7 +101,7 @@
         $address = $_SESSION['shipping']['address'];
         $method_shipping = $_SESSION['shipping']['method'];
         $note =  $_SESSION['shipping']['note'];
-        $estimated_delivery_date = date('d-m-y', strtotime($order_date . ' +4 days'));
+        $estimated_delivery_date = date('Y-m-d ', strtotime($order_date . ' +4 days'));
       
 
         
@@ -102,13 +112,13 @@
         $method = $_GET['method'];
         if ($method === 'cod') {
           // insert order 
-            $Order_Model->insert($user_id, $order_date, $order_total);
+            $Order_Model->insert($user_id, $order_date, $order_total, "Đang xử lý");
             $order_id = $Order_Model->getLastOrderId();
             $_SESSION['order_id'] = $order_id;
             foreach($_SESSION['cart'] as $item) {
               $Detailorder_Model->insert($order_id, $item['id'], $item['title'], $item["img"], $item['quanlity'], $item['price'], (string)$item['total']);
             }
-            $Shipping_Model->insert($order_id, $username, $address, $method_shipping, 0, "Đang gửi", $estimated_delivery_date, $note);
+            $Shipping_Model->insert($order_id, $username, $address, $method_shipping, 0, "Đang xử lý", $estimated_delivery_date, $note);
             
             unset($_SESSION['cart']);
             header('location: '.base_url('cart/success'));

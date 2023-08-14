@@ -4,10 +4,10 @@ class Order_Model extends Base_Model {
   protected $table = 'order';
   protected  $last_order_id;
 
-  public function insert ($user_id,	$order_date,	$order_total) {
+  public function insert ($user_id,	$order_date,	$order_total, $order_status) {
     
-    $sql = "INSERT INTO `order`( user_id,	order_date,	order_total) VALUES(?,?,?)";
-    $this->pdo_execute( $sql, $user_id,	$order_date,	$order_total);
+    $sql = "INSERT INTO `order`( user_id,	order_date,	order_total, order_status) VALUES(?,?,?,?)";
+    $this->pdo_execute( $sql, $user_id,	$order_date,	$order_total, $order_status);
 
     $this->last_order_id = $this->conn->lastInsertId();
   }
@@ -40,5 +40,9 @@ class Order_Model extends Base_Model {
     return $this->pdo_query_value($sql, $id);
   }
 
+  public function update_status ($order_status, $order_id) {
+    $sql = "UPDATE `order` SET order_status = ? WHERE order_id = ?";
+    $this->pdo_execute($sql, $order_status, $order_id);
+  }
   
 }

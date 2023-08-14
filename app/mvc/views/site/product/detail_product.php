@@ -3,7 +3,7 @@
     <div class="breadcrumb_custom">
       <a href="">CỬA HÀNG</a>
       <span style="padding: 0px 5px">|</span>
-      <a href="https://43factory.coffee/ca-phe-specialty/">CÀ PHÊ SPECIALTY | <?= $cate_name['cate_name'] ?></a>
+      <a href="">CÀ PHÊ SPECIALTY | <?= $cate_name['cate_name'] ?></a>
     </div>
   </div>
   <div class="detail_product_wrapper">
@@ -139,7 +139,7 @@
           <div class="head">
             <p class="name">
               <span>
-                <?=$comment['user_fullname']?>
+                <?=$comment['user_fullname'] ? $comment['user_fullname'] : $_SESSION['user']['user_username']?>
               </span>
               <?php 
                 if ($comment['user_role'] == 1) {
@@ -256,13 +256,13 @@
             }
           }
         ?>
-        <form method=" post">
+        <form method="post">
           <input type="hidden" name="cmt_id" value="<?=$comment['cmt_id']?>">
           <input type="hidden" name="user_id" value="<?=$_SESSION['user']['user_id']?>">
-          <div class="reply_text ">
+          <div class="reply_text">
             <div class="textarea-comment">
-              <textarea class="textarea" name="reply_content"></textarea>
-              <button type="submit" name="reply_btn" class="button button_cmt-send">
+              <textarea class="textarea" name="reply_content_id=<?=$comment['cmt_id']?>"></textarea>
+              <button type="submit" name="reply_btn_id=<?=$comment['cmt_id']?>" class="button button_cmt-send">
                 <ion-icon class="icon md hydrated" name="paper-plane-outline" role="img"></ion-icon>
               </button>
             </div>

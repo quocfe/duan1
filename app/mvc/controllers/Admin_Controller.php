@@ -3,7 +3,25 @@
 class Admin_Controller extends Base_Controller  {
   public function index ()  {
     $this->helper->load('url');
-    $this->view->load('admin/index');
+    $this->model->load('category');
+    $this->model->load('product');
+    $this->model->load('users');
+    $this->model->load('comment');
+
+    $Category = new Category_Model();
+    $Product = new Product_Model();
+    $Users = new Users_Model();
+    $Comment = new Comment_Model();
+    $countCate = $Category->count();
+    $countProduct = $Product->count();
+    $countUsers = $Users->count();
+    $countComment = $Comment->count();
+    $this->view->load('admin/index', [
+      'countCate' => $countCate,
+      'countProduct' => $countProduct,
+      'countUsers' => $countUsers,
+      'countComment' => $countComment,
+    ]);
   } 
   
   public function add_category () {
@@ -113,7 +131,7 @@ class Admin_Controller extends Base_Controller  {
       
       $pdt_img = save_file('pdt_img', UPLOAD_FILES."/products/");;
       
-      if (empty($pdt_name) || empty($cate_id)  || empty($pdt_price) || empty($pdt_date)  || empty($pdt_desc) || empty($pdt_content) || empty($pdt_img)) {
+      if (empty($pdt_name) || empty($cate_id)  || empty($pdt_price) || empty($pdt_date)  || empty($pdt_desc)  || empty($pdt_img)) {
             $errors = true;
       }
 
@@ -197,7 +215,7 @@ class Admin_Controller extends Base_Controller  {
       }
 
 
-      if (empty($pdt_title) || empty($cate_id) || empty($pdt_price)|| empty($pdt_date)||  empty($pdt_desc)|| empty($pdt_content)|| empty($pdt_img)) {
+      if (empty($pdt_title) || empty($cate_id) || empty($pdt_price)|| empty($pdt_date)||  empty($pdt_desc) || empty($pdt_img)) {
         $errors = true;
       }
 
@@ -407,18 +425,148 @@ class Admin_Controller extends Base_Controller  {
               // Quá trình tải lên tệp không thành công.
               $user_img = isset($_POST['old_img']) ? $_POST['old_img'] : "";
             } 
-          $user_model->update_admin($id , $username, $fullname, $password, $user_img, $email, $address = '', $gender = '', $role, $active);
-            echo '<script>';
-            echo "alert('Cập nhật thành công')";
-            echo '</script>';
-            
-            
-          }
+        $user_model->update_admin($id , $username, $fullname, $password, $user_img, $email, $address = '', $gender = '', $role, $active);
+          header('Location: '.base_url("admin/list_users").'');
+        }
           $this->view->load('admin/user/update_user', [
             'old_user' => $old_user
           ]);
-          
 
   }
+
+  public function disable_user () {
+    $this->helper->load('url');
+    $this->model->load('users');
+    $user_model = new Users_Model();
+    $id = $_GET['id'];
+
+    $user_model->disable_user($id);
+
+    header('location:'.base_url('admin/list_users').'');
+
+  }
+
   
+  public function active_user () {
+    $this->helper->load('url');
+    $this->model->load('users');
+    $user_model = new Users_Model();
+    $id = $_GET['id'];
+
+    $user_model->active_user($id);
+
+    header('location:'.base_url('admin/list_users').'');
+
+  }
+
+  public function list_comment () {
+    $this->helper->load('url');
+    $this->model->load('comment');
+    $this->model->load('product');
+
+    $Comment = new Comment_Model();
+    
+    $comments = $Comment->comment_statistic();
+
+    $this->view->load('admin/comment/list_comment', [
+        'comments' => $comments,
+    ]);
+    
+  }
+
+  public function detail_comment () {
+    $this->helper->load('url');
+    $this->model->load('comment');
+    $this->model->load('commentreply');
+    $this->model->load('product');
+
+    $CommentReply = new Commentreply_Model();
+    $Comment = new Comment_Model();
+    
+    $id = $_GET['id'];
+
+    $cmts_reply = $Comment->select_cmt_by_user($id );
+
+
+    
+
+    $this->view->load('admin/comment/detail_comment', [
+      'cmts_reply' => $cmts_reply
+    ]);
+
+    if (isset($_POST['delete'])) {
+        $cmt_id = $_POST['cmt_id'];
+        $Comment->delete_cmt($cmt_id);
+        header('Location: '.base_url("admin/detail_comment&id=$id").'');
+        exit();
+    }
+  }
+
+  public function chart () {
+    $this->helper->load('url');
+    $this->model->load('product');
+    
+    $Product_model = new  Product_Model();
+    
+    $items = $Product_model->product_statistic();
+
+    $this->view->load('admin/statistic/chart', [
+      'items' => $items
+    ]);
+
+  }
+
+  public function list () {
+    $this->helper->load('url');
+    $this->model->load('product');
+
+    $Product_model = new  Product_Model();
+    
+    $items = $Product_model->product_statistic();
+
+    $this->view->load('admin/statistic/list', [
+      'items' => $items
+    ]);
+  }
+
+  public function order () {
+    $this->helper->load('url');
+    $this->model->load('order');
+
+    $Order = new Order_Model();
+
+    if (isset($_POST['updateorder'])) {
+      $status = $_POST['status'];
+      $order_id = $_POST['order_id'];
+      $Order->update_status($status, $order_id);
+    }
+    
+
+    $orders = $Order->select_all();
+    
+    $this->view->load('admin/order/order', [
+      'orders' => $orders
+    ]);
+  }
+
+  public function detail_order () {
+    $this->helper->load('url');
+    $this->model->load('detailorder');
+    $this->model->load('order');
+    $this->model->load('shipping');
+    $id = $_GET['id'];
+    $Detailorder = new Detailorder_Model();
+    $Order = new Order_Model();
+    $Shipping = new Shipping_Model();
+    $detail = $Detailorder->select_by_orderid($id);
+    $order = $Order->select_by_id('order', $id);
+    $shipping_info = $Shipping->select_by_id('order',$id);
+    $this->view->load('admin/order/detail_order', [
+      'detail' => $detail,
+      'order' => $order,
+      'shipping_info' => $shipping_info
+    ]);
+  }
+
+
 }

@@ -91,6 +91,8 @@ use PHPMailer\PHPMailer\Exception;
         $checkUserName = $Users_model->user_exist($emailOrName);
 
         if ($checkUserName) {
+          $checkActive = $Users_model->select_user($emailOrName);
+          if ($checkActive[0]["user_active"] == 1) {
             $textValid['userName'] = $emailOrName; 
             $checkPassword = $Users_model->user_password($emailOrName);
             if (password_verify($password , $checkPassword["user_password"])) {
@@ -109,6 +111,11 @@ use PHPMailer\PHPMailer\Exception;
             } else {
                 $errors['password'] = "Mật khẩu không chính xác";
             }
+          } else {
+            $errors['userName'] = "Tài khoản của bạn đã bị vô hiệu hóa! 
+            <br/> Vui lòng liên hệ với đội ngũ Admin để kích hoạt lại tài khoản!";
+          }
+            
           } else {
             $errors['userName'] = "Tên người dùng không tồn tại";
             $errors['password'] = "Mật khẩu không chính xác";
@@ -166,19 +173,28 @@ use PHPMailer\PHPMailer\Exception;
 
     public function detail_order () {
       $this->helper->load('url');
+      $this->layout->set('member');
       $this->model->load('users');
       $this->model->load('detailorder');
       $this->model->load('order');
-      $this->layout->set('member');
+      $this->model->load('shipping');
       $id = $_GET['id'];
       $Detailorder = new Detailorder_Model();
       $Order = new Order_Model();
+      $Shipping = new Shipping_Model();
       $detail = $Detailorder->select_by_orderid($id);
       $order = $Order->select_by_id('order', $id);
+      $shipping_info = $Shipping->select_by_id('order',$id);
+
+      if (isset($_POST['cacelOrder'])) {
+        $Order->update_status('Đã hủy', $id);
+      }
+
       $this->view->load('site/users/detail_order', [
         'detail' => $detail,
         'id' => $id,
-        'order' => $order
+        'order' => $order,
+        'shipping_info' => $shipping_info
       ]);
     }
 
@@ -391,21 +407,18 @@ use PHPMailer\PHPMailer\Exception;
           $errors['password'] = 'Không được để trống';
         } else  if ($_SESSION['otp'] == $otp) {
             if (empty($password)) {
-              $errors['password'] = 'Không được để trống';
+              $errors['password'] = 'Vui lòng nhập mật khẩu';
             }
             if ($password !=  $comfirmPassword) {
               $errors['password'] = 'Mật khẩu không khớp';
             }
 
             if (empty($errors)) {
-              try {
-                $Users_model->update_password($password, $_SESSION['user_forget']);
-                echo '<script>';
-                echo "alert('Đăng ký thành công')";
-                echo '</script>';
-                header('location:'.base_url('users/confirm_otp').'');
-              } catch (Exception $e) {
-              }
+              $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+              $Users_model->update_password($hashedPassword, $_SESSION['user_forget']);
+              echo '<script>';
+              echo 'alert("Mật khẩu đã được đổi")';
+              echo '</script>';
             }
         } else {
           $errors['otp'] = 'Mã OTP không hợp lệ!';

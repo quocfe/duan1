@@ -33,7 +33,9 @@ class Product_Controller extends Base_Controller {
     $comment_model = new Comment_Model();
     $cate_model = new Category_Model();
     $reply_model = new Commentreply_Model();
-
+    
+    $reply_comments = $reply_model->select_reply();
+    $comments = $comment_model->select_cmt_by_product($id); 
     $product = $product_model->select_by_id('pdt', $id);
     $cate_name = $cate_model->select_by_id('cate',$product['cate_id']);
     $replys = $reply_model->select_all() ;
@@ -100,26 +102,33 @@ class Product_Controller extends Base_Controller {
         $reply_text = $_POST['edit_reply'. $reply["reply_id"].''];
         $reply_id = $_POST['reply_id'. $reply["reply_id"].''];
         $reply_model->update_repcmt($reply_text, $reply_id);
-      }
-    }
-    
-
-    if (isset($_POST['reply_btn'])) {
-      $reply_content = $_POST['reply_content'];
-      $cmt_id = $_POST['cmt_id'];
-      $user_id = $_POST['user_id'];
-      $dateTime = new DateTime('now', new DateTimeZone('Asia/Ho_Chi_Minh'));
-      $reply_date = $dateTime->format('Y-m-d');
-
-      if (!empty($reply_content)) {
-        $reply_model->insert($cmt_id, $user_id, $reply_content, $reply_date);
         header('location: '.base_url('product/show&id='.$id.'') );
         exit;
       }
-      
     }
-    $reply_comments = $reply_model->select_reply();
-    $comments = $comment_model->select_cmt_by_product($id); 
+  
+
+    foreach($comments as $comment) {
+        $reply_btn_id = $comment["cmt_id"];
+        if (isset($_POST["reply_btn_id=$reply_btn_id"])) {
+          $cmt_id = $_POST['cmt_id'];
+          $reply_content = $_POST["reply_content_id=$cmt_id"];
+          $user_id = $_POST['user_id'];
+          $dateTime = new DateTime('now', new DateTimeZone('Asia/Ho_Chi_Minh'));
+          $reply_date = $dateTime->format('Y-m-d');
+
+          if (!empty($reply_content)) {
+            $reply_model->insert($cmt_id, $user_id, $reply_content, $reply_date);
+            header('location: '.base_url('product/show&id='.$id.'') );
+            exit;
+          }
+          
+      }
+    }
+
+    
+
+    
     
     $this->view->load('site/product/detail_product', [
       'product' => $product,

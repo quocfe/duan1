@@ -1,6 +1,6 @@
 <section class="main">
   <div class="container-fluid">
-    <div class="card w-75 mx-auto mt-5">
+    <div class="card w-80 mx-auto mt-5">
       <div class="card-header">
         <h2 class="heading">Danh sách bài viết</h2>
         <a class="addBtn" href="<?= base_url('admin/add_post')?>">Thêm mới</a>

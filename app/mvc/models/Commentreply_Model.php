@@ -18,8 +18,10 @@ class Commentreply_Model extends Base_Model {
     }
 
     public function select_reply () {
-      $sql = "SELECT commentreply.*, users.user_fullname, users.user_img, users.user_role FROM `commentreply` 
+      $sql = "SELECT commentreply.*, users.user_fullname, users.user_role FROM `commentreply` 
               JOIN users ON users.user_id = commentreply.user_id";
       return $this->pdo_query($sql);
     }
+
+  
 }
